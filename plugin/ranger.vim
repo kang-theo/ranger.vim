@@ -48,19 +48,19 @@ if has('nvim')
   function! OpenRangerIn(path, edit_cmd)
     let currentPath = expand(a:path)
     let rangerCallback = { 'name': 'ranger', 'edit_cmd': a:edit_cmd }
-    " function! rangerCallback.on_exit(job_id, code, event)
-    "   if a:code == 0
-    "     silent! Bclose!
-    "   endif
-    "   try
-    "     if filereadable(s:choice_file_path)
-    "       for f in readfile(s:choice_file_path)
-    "         exec self.edit_cmd . f
-    "       endfor
-    "       call delete(s:choice_file_path)
-    "     endif
-    "   endtry
-    " endfunction
+    function! rangerCallback.on_exit(job_id, code, event)
+      if a:code == 0
+        silent! Bclose!
+      endif
+      " try
+      "   if filereadable(s:choice_file_path)
+      "     for f in readfile(s:choice_file_path)
+      "       exec self.edit_cmd . f
+      "     endfor
+      "     call delete(s:choice_file_path)
+      "   endif
+      " endtry
+    endfunction
     enew
     if isdirectory(currentPath)
       call termopen(s:ranger_command . ' --choosefiles=' . s:choice_file_path . ' "' . currentPath . '"', rangerCallback)
