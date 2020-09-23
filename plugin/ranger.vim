@@ -110,6 +110,12 @@ command! RangerCurrentDirectoryExistingOrNewTab call OpenRangerIn("%:p:h", 'tab 
 command! RangerWorkingDirectoryNewTab call OpenRangerIn(".", 'tabedit ')
 command! RangerWorkingDirectoryExistingOrNewTab call OpenRangerIn(".", 'tab drop ')
 command! RangerNewTab RangerCurrentDirectoryNewTab
+" add. kcy
+command! RangerChooser call OpenRangerIn("%", 'edit ')
+command! RangerChooserSplit call OpenRangerIn("%", 'split ')
+command! RangerChooserVsplit call OpenRangerIn("%", 'vsplit ')
+command! RangerChooserTab call OpenRangerIn("%", 'tabedit ')
+" end. kcy
 
 " For retro-compatibility
 function! OpenRanger()
@@ -138,4 +144,3 @@ endif
 if !exists('g:ranger_map_keys') || g:ranger_map_keys
   map <leader>f :Ranger<CR>
 endif
-
