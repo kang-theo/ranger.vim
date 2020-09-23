@@ -50,7 +50,7 @@ if has('nvim')
     let rangerCallback = { 'name': 'ranger', 'edit_cmd': a:edit_cmd }
     function! rangerCallback.on_exit(job_id, code, event)
       if a:code == 0
-        silent! Bclose!
+        " silent! Bclose!
       endif
       try
         if filereadable(s:choice_file_path)
@@ -112,8 +112,8 @@ command! RangerWorkingDirectoryExistingOrNewTab call OpenRangerIn(".", 'tab drop
 command! RangerNewTab RangerCurrentDirectoryNewTab
 
 " add. kcy
-" command! RangerChooser call OpenRangerIn("%", 'edit ')
-" command! RangerChooserSplit call OpenRangerIn("%:p:h", 'split ')
+command! RangerChooser call OpenRangerIn("%", 'edit ')
+command! RangerChooserSplit call OpenRangerIn("%", 'split ')
 command! RangerChooserVsplit call OpenRangerIn("%", 'vsplit ')
 command! RangerChooserTab call OpenRangerIn("%", 'tabedit ')
 " end. kcy
