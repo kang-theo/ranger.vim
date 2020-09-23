@@ -52,14 +52,14 @@ if has('nvim')
       if a:code == 0
         silent! Bclose!
       endif
-      " try
-      "   if filereadable(s:choice_file_path)
-      "     for f in readfile(s:choice_file_path)
-      "       exec self.edit_cmd . f
-      "     endfor
-      "     call delete(s:choice_file_path)
-      "   endif
-      " endtry
+      try
+        if filereadable(s:choice_file_path)
+          for f in readfile(s:choice_file_path)
+            exec self.edit_cmd . f
+          endfor
+          call delete(s:choice_file_path)
+        endif
+      endtry
     endfunction
     enew
     if isdirectory(currentPath)
