@@ -114,7 +114,7 @@ command! RangerNewTab RangerCurrentDirectoryNewTab
 " add. kcy
 " command! RangerChooser call OpenRangerIn("%", 'edit ')
 " command! RangerChooserSplit call OpenRangerIn("%:p:h", 'split ')
-command! RangerChooserVsplit call OpenRangerIn("%", 'sfsfvsplit ')
+command! RangerChooserVsplit call OpenRangerIn("%", 'vsplit ')
 command! RangerChooserTab call OpenRangerIn("%", 'tabedit ')
 " end. kcy
 
