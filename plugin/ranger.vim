@@ -143,5 +143,8 @@ if exists('g:ranger_replace_netrw') && g:ranger_replace_netrw
 endif
 
 if !exists('g:ranger_map_keys') || g:ranger_map_keys
-  map <leader>f :Ranger<CR>
+  "a.kcy conflict with SpaceVim layer fzf
+  "map <leader>f :Ranger<CR>
+  map <leader>r :Ranger<CR> 
+  "e.kcy
 endif
